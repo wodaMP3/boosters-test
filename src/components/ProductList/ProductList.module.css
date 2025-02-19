@@ -1,0 +1,7 @@
+.productList {
+    display: flex;
+    justify-content: center; /* Центрируем по горизонтали */
+    align-items: center;
+    gap: 20px; /* Отступ между карточками */
+    margin-top: 50px;
+  }
