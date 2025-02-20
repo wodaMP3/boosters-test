@@ -1,22 +1,15 @@
 import React from "react";
-import styles from "./ProductCard.module.css"; // Убедись, что файл точно называется `ProductCard.module.css`
-import { Product } from "../../types/productTypes";
+import styles from "./ProductCard.module.css";
 import { Checkbox } from "@headlessui/react";
+import { ProductCardProps } from "./ProductCard.props";
 
-interface ProductCardProps {
-  product: Product;
-  selected: boolean;
-  onSelect: (id: string) => void;
-  isMostPopular?: boolean; // if u need to change the popular one 
-}
-
-const ProductCard: React.FC<ProductCardProps> = ({ product, selected, onSelect, isMostPopular }) => {
+const ProductCard: React.FC<ProductCardProps> = ({ product, selected, onSelect }) => {
   return (
     <div className={`${styles["product-card"]} 
       ${selected ? styles.selected : ""}`} 
       onClick={() => onSelect(product.id)}
       >
-        {isMostPopular && <div className={styles.popularBadge}>Most Popular</div>}
+        {product.isMostPopular && <div className={styles.popularBadge}>Most Popular</div>}
 
       <div className={styles.checkboxContainer}>
         <Checkbox
@@ -32,8 +25,8 @@ const ProductCard: React.FC<ProductCardProps> = ({ product, selected, onSelect, 
       </div>
       <h3 className={styles.period}>{product.name}</h3>
       <p className={styles.price}>
-        <span className={styles.oldPrice}>$49.99</span> {/* Фиксированная цена */}
-        <span className={styles.newPrice}>$29.99</span> {/* Перевод центов в доллары */}
+        <span className={styles.oldPrice}>$49.99</span>
+        <span className={styles.newPrice}>$29.99</span> 
         <span className={styles.monthly}>Per month</span>
       </p>
     </div>

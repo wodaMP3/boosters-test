@@ -7,5 +7,6 @@ export interface Product {
     currency: "USD";
     trial_period: number; // пробный период в днях
     trial_amount: number; // цена пробного периода в центах
+    isMostPopular: boolean;
   }
   

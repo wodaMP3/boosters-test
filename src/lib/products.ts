@@ -10,6 +10,7 @@ export const products: Product[] = [
     currency: "USD",
     trial_period: 7,
     trial_amount: 100,
+    isMostPopular: true,
   },
   {
     id: "2",
@@ -20,6 +21,7 @@ export const products: Product[] = [
     currency: "USD",
     trial_period: 0,
     trial_amount: 100,
+    isMostPopular: false,
   },
   {
     id: "3",
@@ -30,5 +32,6 @@ export const products: Product[] = [
     currency: "USD",
     trial_period: 14,
     trial_amount: 100,
+    isMostPopular: false,
   },
 ];

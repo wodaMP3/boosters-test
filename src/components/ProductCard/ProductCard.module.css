@@ -1,4 +1,5 @@
 .product-card {
+    position: relative;
     display: flex;
     width: 363px;
     height: 84px;
@@ -27,6 +28,7 @@
   
   
   .period {
+    width: 219px;
     display: flex;
     color: #22293B;
     font-weight: 700;
@@ -102,6 +104,7 @@
   }
 
   .monthly {
+    width: 129px;
     font-weight: 400;
     font-size: 12px;
     align-self: flex-end;
