@@ -5,4 +5,5 @@ export interface ProductCardProps {
   selected: boolean;
   onSelect: (id: string) => void;
   isMostPopular?: boolean; // if u need to change the popular one 
+  isUnique?: boolean;
 }

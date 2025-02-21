@@ -1,4 +1,6 @@
-.product-card {
+
+
+.productCard {
     position: relative;
     display: flex;
     width: 363px;
@@ -56,8 +58,7 @@
   }
 
   .cardContent {
-    display: flex
-;
+    display: flex;
     position: relative;
     width: 100%;
     flex-direction: row;
@@ -81,6 +82,51 @@
     z-index: 11;
   }
   
+  .discount90 {
+    position: absolute;
+    top: -12px;
+    left: 50px;
+    background: #14b8a6;
+    color: white;
+    font-size: 12px;
+    padding: 4px 12px;
+    border-radius: 16px;
+    font-weight: 700;
+    white-space: nowrap;
+    z-index: 111;
+  }
+  
+  .discount50 {
+    position: absolute;
+    top: -12px;
+    left: 50px;
+    background: #14b8a6;
+    color: white;
+    font-size: 12px;
+    padding: 4px 12px;
+    border-radius: 16px;
+    font-weight: 700;
+    white-space: nowrap;
+    z-index: 111;
+  }
+  
+  .bestValueBadge {
+    position: absolute;
+    top: -30px;
+    right: 12px;
+    background: #fbbf24;
+    color: black;
+    font-size: 16px;
+    padding: 4px 16px;
+    line-height: 30px;
+    border-radius: 14px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    transform: rotate(4.2deg);
+    gap: 4px;
+    z-index: 111;
+  }
   
   .period {
     width: 219px;
@@ -91,11 +137,11 @@
     font-size: 17px;
     letter-spacing: 0.1px;
   }
-  .product-card:hover {
+  .productCard:hover {
     border-color: #00B39B;
   }
   
-  .product-card.selected {
+  .productCard.selected {
     border-color: #00B39B;
   }
   
@@ -159,12 +205,201 @@
   }
 
   .monthly {
-    width: 129px;
+    position: absolute;
+    display: flex;
     font-weight: 400;
+    width: 129px;
     font-size: 12px;
     align-self: flex-end;
-    margin-left: 10px;
+    max-height: 20px;
+    margin-left: -56px;
     color: #181B29;
     line-height: 20px;
     letter-spacing: 0.1px;
+    flex-wrap: nowrap;
+    flex-direction: row-reverse;
   }
+
+  .productCard .customPrice .newPrice {
+    margin-left: 20px;
+  }
+
+  @media (max-width: 1200px) {
+    .productCard {
+        width: 300px; /* Уменьшаем ширину карточки */
+        height: 120px; /* Уменьшаем высоту карточки */
+        padding: 12px; /* Уменьшаем отступы */
+    }
+
+    .saleBanner {
+        height: 48px; /* Уменьшаем высоту баннера */
+        font-size: 14px; /* Уменьшаем размер шрифта */
+        padding: 8px; /* Уменьшаем отступы */
+        margin-left: -12px;
+    }
+
+    .period {
+        font-size: 15px; /* Уменьшаем размер шрифта */
+    }
+
+    .price {
+        font-size: 18px; /* Уменьшаем размер шрифта */
+    }
+
+    .oldPrice {
+        font-size: 11px; /* Уменьшаем размер шрифта */
+        margin-left: 21.5px;
+    }
+
+    .monthly {
+        font-size: 11px;
+        margin-left: -70px;
+        margin-bottom: 2px; /* Уменьшаем размер шрифта */
+    }
+}
+
+
+
+
+@media (max-width: 1030px) {
+
+
+  .productCard {
+    width: 90%; /* Уменьшаем ширину карточки */
+    height: 96px; /* Уменьшаем высоту карточки */
+    padding: 10px; /* Уменьшаем отступы */
+}
+
+.saleBanner {
+    height: 44px; /* Уменьшаем высоту баннера */
+    font-size: 10px; /* Уменьшаем размер шрифта */
+    padding: 6px; /* Уменьшаем отступы */
+    margin-left: -10px;
+}
+
+.bestValueBadge {
+  right: 180px;
+}
+
+.checkbox {
+  height: 18px;
+  width: 18px;
+}
+
+.period {
+    margin-right: 390px;
+    font-size: 11px; /* Уменьшаем размер шрифта */
+    line-height: 10px;
+}
+
+.price {
+    font-size: 14px; /* Уменьшаем размер шрифта */
+    margin-bottom: 5px;
+}
+
+.newPrice {
+  margin-left: 15px;
+}
+
+.oldPrice {
+    font-size: 9px; /* Уменьшаем размер шрифта */
+    bottom: 40px;
+    margin-left: 24.5px;
+}
+
+.monthly {
+    font-size: 9px; /* Уменьшаем размер шрифта */
+    margin-left: -62px;
+    margin-bottom: 10px;
+}
+}
+
+@media (max-width: 768px) {
+
+  .productCard {
+    width: 90%; /* Карточка занимает всю ширину */
+    height: auto; /* Высота автоматически подстраивается под контент */
+    padding: 10px; /* Уменьшаем отступы */
+  }
+
+  .saleBanner {
+    height: 40px; /* Уменьшаем высоту баннера */
+    font-size: 14px; /* Уменьшаем размер шрифта */
+    padding: 6px; /* Уменьшаем отступы */
+  }
+
+  .period {
+    font-size: 14px; /* Уменьшаем размер шрифта */
+  }
+
+  .price {
+    font-size: 16px; /* Уменьшаем размер шрифта */
+    margin-left: -200px;
+  }
+
+  .oldPrice {
+    font-size: 12px; /* Уменьшаем размер шрифта */
+  }
+
+  .monthly {
+    font-size: 12px; /* Уменьшаем размер шрифта */
+  }
+
+  .popularBadge {
+    font-size: 12px; /* Уменьшаем размер шрифта */
+    padding: 4px 8px; /* Уменьшаем отступы */
+  }
+
+  .checkbox {
+    width: 20px; /* Уменьшаем размер чекбокса */
+    height: 20px; /* Уменьшаем размер чекбокса */
+  }
+
+  .checkIcon {
+    width: 16px; /* Уменьшаем размер иконки */
+    height: 16px; /* Уменьшаем размер иконки */
+  }
+}
+
+@media (max-width: 480px) {
+  .productCard {
+    padding: 8px; /* Еще меньше отступов */
+  }
+
+  .saleBanner {
+    height: 35px; /* Еще меньше высота баннера */
+    font-size: 12px; /* Еще меньше размер шрифта */
+    padding: 4px; /* Еще меньше отступов */
+  }
+
+  .period {
+    font-size: 12px; /* Еще меньше размер шрифта */
+  }
+
+  .price {
+    font-size: 14px; /* Еще меньше размер шрифта */
+  }
+
+  .oldPrice {
+    font-size: 10px; /* Еще меньше размер шрифта */
+  }
+
+  .monthly {
+    font-size: 10px; /* Еще меньше размер шрифта */
+  }
+
+  .popularBadge {
+    font-size: 10px; /* Еще меньше размер шрифта */
+    padding: 3px 6px; /* Еще меньше отступы */
+  }
+
+  .checkbox {
+    width: 18px; /* Еще меньше размер чекбокса */
+    height: 18px; /* Еще меньше размер чекбокса */
+  }
+
+  .checkIcon {
+    width: 14px; /* Еще меньше размер иконки */
+    height: 14px; /* Еще меньше размер иконки */
+  }
+}
