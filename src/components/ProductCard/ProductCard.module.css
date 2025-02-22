@@ -264,13 +264,18 @@
 @media (max-width: 1030px) {
 
 
-  .productCard {
+.productCard {
     width: 90%; /* Уменьшаем ширину карточки */
     height: 96px; /* Уменьшаем высоту карточки */
     padding: 10px; /* Уменьшаем отступы */
 }
 
+.cardContent {
+  top: 0;
+}
+
 .saleBanner {
+    display: none;
     height: 44px; /* Уменьшаем высоту баннера */
     font-size: 10px; /* Уменьшаем размер шрифта */
     padding: 6px; /* Уменьшаем отступы */
@@ -281,20 +286,16 @@
   right: 180px;
 }
 
-.checkbox {
-  height: 18px;
-  width: 18px;
-}
-
 .period {
-    margin-right: 390px;
-    font-size: 11px; /* Уменьшаем размер шрифта */
-    line-height: 10px;
+  width: 100%;
+  margin-right: 0;
+  font-size: 20px; /* Уменьшаем размер шрифта */
+  line-height: 10px;
 }
 
 .price {
-    font-size: 14px; /* Уменьшаем размер шрифта */
-    margin-bottom: 5px;
+    font-size: 23px; /* Уменьшаем размер шрифта */
+    margin-left: -165px;
 }
 
 .newPrice {
@@ -302,17 +303,19 @@
 }
 
 .oldPrice {
-    font-size: 9px; /* Уменьшаем размер шрифта */
-    bottom: 40px;
-    margin-left: 24.5px;
+    font-size: 12px; /* Уменьшаем размер шрифта */
+    bottom: 44px;
+    margin-left: 51.5px;
 }
 
 .monthly {
-    font-size: 9px; /* Уменьшаем размер шрифта */
-    margin-left: -62px;
-    margin-bottom: 10px;
+  font-size: 12px;
+  margin-left: -32px;
+  margin-bottom: 7px;
 }
 }
+
+
 
 @media (max-width: 768px) {
 
@@ -329,7 +332,8 @@
   }
 
   .period {
-    font-size: 14px; /* Уменьшаем размер шрифта */
+    font-size: 14px;
+    margin-right: 470px; /* Уменьшаем размер шрифта */
   }
 
   .price {
@@ -363,34 +367,56 @@
 
 @media (max-width: 480px) {
   .productCard {
-    padding: 8px; /* Еще меньше отступов */
+    padding: 8px;
+    max-height: 88px;
   }
-
+  
   .saleBanner {
+    display: none;
     height: 35px; /* Еще меньше высота баннера */
     font-size: 12px; /* Еще меньше размер шрифта */
     padding: 4px; /* Еще меньше отступов */
+    margin-left: -8px;
   }
+  
+  .cardContent {
+      top: 10px;
+    }
 
+  .checkbox {
+    width: 24px;
+    height: 24px;
+  }  
+  
   .period {
-    font-size: 12px; /* Еще меньше размер шрифта */
+    font-size: 17px;
+    margin-right: 50px;   
   }
 
   .price {
-    font-size: 14px; /* Еще меньше размер шрифта */
+    font-size: 20px; /* Еще меньше размер шрифта */
+  }
+
+  .newPrice {
+    margin-left: 25px;
   }
 
   .oldPrice {
-    font-size: 10px; /* Еще меньше размер шрифта */
+    font-size: 12px; /* Еще меньше размер шрифта */
   }
 
   .monthly {
-    font-size: 10px; /* Еще меньше размер шрифта */
+    font-size: 12px;
+    margin-bottom: 5px; /* Еще меньше размер шрифта */
   }
 
   .popularBadge {
     font-size: 10px; /* Еще меньше размер шрифта */
     padding: 3px 6px; /* Еще меньше отступы */
+  }
+
+  .bestValueBadge {
+    right: 18px;
   }
 
   .checkbox {
@@ -401,5 +427,12 @@
   .checkIcon {
     width: 14px; /* Еще меньше размер иконки */
     height: 14px; /* Еще меньше размер иконки */
+  }
+}
+
+@media (max-width: 360px) {
+  .period {
+    font-size: 15px;
+    margin-right: 70px;
   }
 }

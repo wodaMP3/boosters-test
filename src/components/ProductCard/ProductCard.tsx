@@ -10,11 +10,15 @@ const ProductCard: React.FC<ProductCardProps> = ({ product, selected, onSelect, 
 
   const [showTime, setShowTime] = useState<boolean>(true);
 
+
   return (
+
+    
     <div className={`${styles.productCard} ${isUnique ? styles.customPosition : ""} 
       ${selected ? styles.selected : ""} `} 
       onClick={() => onSelect(product.id)}
       >
+        
 
         {product.isMostPopular && <div className={styles.popularBadge}>Most Popular</div>}
 

@@ -1,9 +1,14 @@
+'use client'
+
 import React, { useState } from "react";
 import { Product } from "@/types/productTypes";
 import ProductCard from "../ProductCard/ProductCard";
 import styles from './ProductList.module.css';
 import Button from "../Button/Button";
 import Header from "../Header/Header";
+import Timer from "../Timer/Timer";
+import Image from "next/image";
+import acute from '@/img/acute.svg'
 
   const products: Product[] = [
     {
@@ -47,9 +52,11 @@ import Header from "../Header/Header";
     },
   ];
   
+  
 
 const ProductList: React.FC = () => {
   const [selectedId, setSelectedId] = useState<string | null>(null);
+  const [showTime, setShowTime] = useState<boolean>(true);
 
   const handleSelect = (id: string) => {
     setSelectedId(id);
@@ -64,12 +71,23 @@ const ProductList: React.FC = () => {
     }
   }
 
+
+
   return (
     <>
     
     <Header />
 
+    <div className={styles.saleBannerMobile}>
+        <span className={styles.timerText}>
+          <Image src={acute} alt="Timer Icon" className={styles.saleIcon} width={22} height={16} />
+          SALE ENDS IN <Timer duration={1} 
+          onExpire={() => setShowTime(false) }/>
+        </span>
+      </div>
+
     <div className={styles.productList}>
+    
       {products.map((product) => (
         <ProductCard
           key={product.id}
