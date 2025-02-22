@@ -225,6 +225,17 @@
     margin-left: 20px;
   }
 
+  .expiredStyle  {
+    height: 90px; 
+  }
+
+  .expiredStyle .cardContent {
+    top: 0;
+  }
+
+
+ 
+
   @media (max-width: 1200px) {
     .productCard {
         width: 300px; /* Уменьшаем ширину карточки */
@@ -288,8 +299,8 @@
 }
 
 .period {
-  width: 100%;
-  margin-right: 0;
+  width: 245px;
+  margin-right: 600px;
   font-size: 20px; /* Уменьшаем размер шрифта */
   line-height: 10px;
 }
@@ -316,9 +327,15 @@
 }
 }
 
+@media (max-width: 825px) {
+  
+  .period {
+    margin-right: 466px;
+  }
+}
 
 
-@media (max-width: 768px) {
+@media (max-width: 770px) {
 
   .productCard {
     width: 90%; /* Карточка занимает всю ширину */
@@ -332,14 +349,20 @@
     padding: 6px; /* Уменьшаем отступы */
   }
 
+ 
   .period {
-    font-size: 14px;
-    margin-right: 470px; /* Уменьшаем размер шрифта */
+    font-size: 20px;
+    width: 250px;
+    margin-right: 460px;
   }
 
   .price {
     font-size: 16px; /* Уменьшаем размер шрифта */
     margin-left: -200px;
+  }
+
+  .newPrice {
+    font-size: 23px;
   }
 
   .oldPrice {
@@ -366,6 +389,12 @@
   }
 }
 
+@media (max-width: 555px) {
+  .period {
+    margin-right: 235px;
+  }
+}
+
 @media (max-width: 480px) {
   .productCard {
     padding: 8px;
@@ -389,9 +418,14 @@
     height: 24px;
   }  
   
+  .expiredStyle .period {
+    
+  }
+
   .period {
-    font-size: 17px;
-    margin-right: 50px;   
+    font-size: 15px;  
+    margin-right: 210px;
+
   }
 
   .price {
@@ -399,6 +433,7 @@
   }
 
   .newPrice {
+    font-size: 20px;
     margin-left: 25px;
   }
 
@@ -420,10 +455,6 @@
     right: 18px;
   }
 
-  .checkbox {
-    width: 18px; /* Еще меньше размер чекбокса */
-    height: 18px; /* Еще меньше размер чекбокса */
-  }
 
   .checkIcon {
     width: 14px; /* Еще меньше размер иконки */
@@ -431,9 +462,21 @@
   }
 }
 
-@media (max-width: 360px) {
+@media (max-width: 435px) {
+  .period {
+    margin-left: 0;
+    margin-right: 157px;
+  }
+}
+
+@media (max-width: 395px) {
+
+  .expiredStyle .period {
+    margin-right: 122px;
+  }
+
   .period {
     font-size: 15px;
-    margin-right: 70px;
+    margin-right: 120px;
   }
 }

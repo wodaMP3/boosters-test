@@ -1,4 +1,3 @@
-'use client'
 
 import React, { useState, useEffect } from "react";
 
@@ -38,7 +37,14 @@ const Timer: React.FC<TimerProps> = ({ duration, onExpire }) => {
 
   if (timeLeft === null) return null; // Пока идёт инициализация
 
-  return <span>{timeLeft}</span>;
+  // Вычисляем минуты и секунды
+  const minutes = Math.floor(timeLeft / 60);
+  const seconds = timeLeft % 60;
+
+  // Форматируем в "MM:SS"
+  const formattedTime = `${String(minutes).padStart(2, "0")}:${String(seconds).padStart(2, "0")}`;
+
+  return <span>{formattedTime}</span>;
 };
 
 export default Timer;

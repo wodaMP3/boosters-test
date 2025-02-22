@@ -1,4 +1,6 @@
-import React, { useState } from "react";
+'use client'
+
+import React, { useState, useEffect } from "react";
 import styles from "./ProductCard.module.css";
 import { Checkbox } from "@headlessui/react";
 import { ProductCardProps } from "./ProductCard.props";
@@ -6,16 +8,29 @@ import Timer from "../Timer/Timer";
 import Image from "next/image";
 import acute from '../../img/acute.png';
 
-const ProductCard: React.FC<ProductCardProps> = ({ product, selected, onSelect, isUnique }) => {
+const ProductCard: React.FC<ProductCardProps> = ({ product, selected, onSelect, isUnique, isTimerExpired }) => {
 
   const [showTime, setShowTime] = useState<boolean>(true);
 
+
+   useEffect(() => {
+      // Проверяем, истёк ли таймер при загрузке страницы
+      const timerExpired = localStorage.getItem("timerExpired");
+      if (timerExpired === "true") {
+        setShowTime(false);
+      }
+    }, []);
+
+    const handleTimerExpire = () => {
+      setShowTime(false);
+      localStorage.setItem("timerExpired", "true"); // Фиксируем, что таймер истёк
+    };
 
   return (
 
     
     <div className={`${styles.productCard} ${isUnique ? styles.customPosition : ""} 
-      ${selected ? styles.selected : ""} `} 
+      ${selected ? styles.selected : ""} ${isTimerExpired ? styles.expiredStyle : "" }`} 
       onClick={() => onSelect(product.id)}
       >
         
@@ -31,13 +46,18 @@ const ProductCard: React.FC<ProductCardProps> = ({ product, selected, onSelect, 
 
       {/* "Best Value" плашка для третьего продукта */}
       {product.id === "3" && <div className={styles.bestValueBadge}>🚀 Best Value</div>}
-        
+
+
+       
+       {showTime && (
         <div className={styles.saleBanner}>
-          <span className={styles.timerText}><Image src={acute} alt="Timer Icon" className={styles.saleIcon} width={22} height={16}/>
-            SALE ENDS IN <Timer duration={1} 
-              onExpire={() => setShowTime(false) }/></span>
-          <div className={styles.bannerArrow}></div> 
-        </div>
+        <span className={styles.timerText}><Image src={acute} alt="Timer Icon" className={styles.saleIcon} width={22} height={16}/>
+          SALE ENDS IN <Timer duration={30} 
+            onExpire={handleTimerExpire}/></span>
+        <div className={styles.bannerArrow}></div> 
+      </div>
+       )} 
+        
         <div className={styles.cardContent}>
       <div className={styles.checkboxContainer}>
         <Checkbox

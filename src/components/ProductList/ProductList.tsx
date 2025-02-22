@@ -1,62 +1,70 @@
 'use client'
 
-import React, { useState } from "react";
+
+import React, { useState, useEffect } from "react";
 import { Product } from "@/types/productTypes";
 import ProductCard from "../ProductCard/ProductCard";
-import styles from './ProductList.module.css';
+import styles from "./ProductList.module.css";
 import Button from "../Button/Button";
 import Header from "../Header/Header";
 import Timer from "../Timer/Timer";
 import Image from "next/image";
-import acute from '@/img/acute.svg'
+import acute from "@/img/acute.svg";
 
-  const products: Product[] = [
-    {
-      id: "1",
-      name: "Unlimited 1-month Plan",
-      regularity: "month",
-      oldPrice: 69.99,
-      newPrice: 39.99,
-      currency: "USD",
-      trial_period: 7,
-      trial_amount: 100,
-      isMostPopular: true,
-      period: 'Per month',
-      isUnique: false,
-    },
-    {
-      id: "2",
-      name: "7-day Access",
-      regularity: "month",
-      oldPrice: 10.00,
-      newPrice: 1.00,
-      currency: "USD",
-      trial_period: 0,
-      trial_amount: 100,
-      isMostPopular: false,
-      period: 'Then 29.99 per month',
-      isUnique: true,
-    },
-    {
-      id: "3",
-      name: "Unlimited Annual Plan",
-      regularity: "year",
-      newPrice: 24.99,
-      oldPrice: 49.00,
-      currency: "USD",
-      trial_period: 14,
-      trial_amount: 100,
-      isMostPopular: false,
-      period: 'Per month',
-      isUnique: false
-    },
-  ];
-  
-  
+const products: Product[] = [
+  {
+    id: "1",
+    name: "Unlimited 1-month Plan",
+    regularity: "month",
+    oldPrice: 69.99,
+    newPrice: 39.99,
+    currency: "USD",
+    trial_period: 7,
+    trial_amount: 100,
+    isMostPopular: true,
+    period: "Per month",
+    isUnique: false,
+  },
+  {
+    id: "2",
+    name: "7-day Access",
+    regularity: "month",
+    oldPrice: 10.0,
+    newPrice: 1.0,
+    currency: "USD",
+    trial_period: 0,
+    trial_amount: 100,
+    isMostPopular: false,
+    period: "Then 29.99 per month",
+    isUnique: true,
+  },
+  {
+    id: "3",
+    name: "Unlimited Annual Plan",
+    regularity: "year",
+    newPrice: 24.99,
+    oldPrice: 49.0,
+    currency: "USD",
+    trial_period: 14,
+    trial_amount: 100,
+    isMostPopular: false,
+    period: "Per month",
+    isUnique: false,
+  },
+];
 
 const ProductList: React.FC = () => {
   const [selectedId, setSelectedId] = useState<string | null>(null);
   const [showTime, setShowTime] = useState<boolean>(true);
+  const isTimerExpired = typeof window !== "undefined" && localStorage.getItem("timerExpired") === "true";
+
+  useEffect(() => {
+    // Проверяем, истёк ли таймер при загрузке страницы
+    const timerExpired = localStorage.getItem("timerExpired");
+    if (timerExpired === "true") {
+      setShowTime(false);
+    }
+  }, []);
 
   const handleSelect = (id: string) => {
     setSelectedId(id);
@@ -67,46 +75,55 @@ const ProductList: React.FC = () => {
     if (selectedProduct) {
       console.log(`ID: ${selectedProduct.id}, Name: ${selectedProduct.name}`);
     } else {
-      console.log('Please, choose the product!');
+      console.log("Please, choose the product!");
     }
-  }
+  };
 
-
+  const handleTimerExpire = () => {
+    setShowTime(false);
+    localStorage.setItem("timerExpired", "true"); // Фиксируем, что таймер истёк
+  };
 
   return (
     <>
-    
-    <Header />
+      <Header />
 
-    <div className={styles.saleBannerMobile}>
-        <span className={styles.timerText}>
-          <Image src={acute} alt="Timer Icon" className={styles.saleIcon} width={22} height={16} />
-          SALE ENDS IN <Timer duration={1} 
-          onExpire={() => setShowTime(false) }/>
-        </span>
+      {/* Показываем баннер только если таймер не истёк */}
+      {showTime && (
+        <div className={styles.saleBannerMobile}>
+          <span className={styles.timerText}>
+            <Image
+              src={acute}
+              alt="Timer Icon"
+              className={styles.saleIcon}
+              width={22}
+              height={16}
+            />
+            SALE ENDS IN <Timer duration={30} onExpire={handleTimerExpire} />
+          </span>
+        </div>
+      )}
+
+      <div className={styles.productList}>
+        {products.map((product) => (
+          <ProductCard
+            key={product.id}
+            product={product}
+            selected={selectedId === product.id}
+            onSelect={handleSelect}
+            isTimerExpired={isTimerExpired}
+          />
+        ))}
       </div>
 
-    <div className={styles.productList}>
-    
-      {products.map((product) => (
-        <ProductCard
-          key={product.id}
-          product={product}
-          selected={selectedId === product.id}
-          onSelect={handleSelect} 
-          />
-      ))}
-    </div>
-    
       <div className={styles.buttonContainer}>
         <Button onClick={handleButtonClick}>Get Started</Button>
       </div>
 
       <div className={styles.bottomText}>
-          <p>Automatic renewal of $29.99 per month.</p>
-          <p>You may cancel by support@justdone.ai. Our goal is customer satisfaction</p>
+        <p>Automatic renewal of $29.99 per month.</p>
+        <p>You may cancel by support@justdone.ai. Our goal is customer satisfaction</p>
       </div>
-
     </>
   );
 };
