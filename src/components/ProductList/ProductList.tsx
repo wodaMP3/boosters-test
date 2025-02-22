@@ -78,13 +78,15 @@ const ProductList: React.FC = () => {
     
     <Header />
 
+    {showTime && (
     <div className={styles.saleBannerMobile}>
         <span className={styles.timerText}>
           <Image src={acute} alt="Timer Icon" className={styles.saleIcon} width={22} height={16} />
-          SALE ENDS IN <Timer duration={1} 
+          SALE ENDS IN <Timer duration={60} 
           onExpire={() => setShowTime(false) }/>
         </span>
       </div>
+    )}
 
     <div className={styles.productList}>
     

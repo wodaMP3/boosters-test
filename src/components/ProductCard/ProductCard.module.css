@@ -225,6 +225,14 @@
     margin-left: 20px;
   }
 
+  .expiredStyle {
+    height: 90px;
+  }
+
+  .expiredStyle .cardContent {
+    top: 0;
+  }
+
   @media (max-width: 1200px) {
     .productCard {
         width: 300px; /* Уменьшаем ширину карточки */
@@ -271,6 +279,15 @@
     padding: 10px; /* Уменьшаем отступы */
 }
 
+.expiredStyle .period {
+  width: 244px;
+  margin-right: 433px;
+}
+.period {
+  width: 244px;
+  margin-right: 433px;
+}
+
 .cardContent {
   top: 0;
 }
@@ -285,13 +302,6 @@
 
 .bestValueBadge {
   right: 180px;
-}
-
-.period {
-  width: 100%;
-  margin-right: 0;
-  font-size: 20px; /* Уменьшаем размер шрифта */
-  line-height: 10px;
 }
 
 .price {
@@ -388,10 +398,13 @@
     width: 24px;
     height: 24px;
   }  
+
+  .expiredStyle .period {
+    margin-right: 155px;
+  }
   
   .period {
-    font-size: 17px;
-    margin-right: 50px;   
+    margin-right: 155px; 
   }
 
   .price {
@@ -431,9 +444,10 @@
   }
 }
 
-@media (max-width: 360px) {
+@media (max-width: 390px) {
+
   .period {
-    font-size: 15px;
-    margin-right: 70px;
+    width: 190px;
+    margin-right: 180px;
   }
 }
