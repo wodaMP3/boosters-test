@@ -1,114 +1,108 @@
 'use client'
 
-import React, { useState } from "react";
-import { Product } from "@/types/productTypes";
+import React, { useState, useEffect } from "react";
 import ProductCard from "../ProductCard/ProductCard";
 import styles from './ProductList.module.css';
 import Button from "../Button/Button";
 import Header from "../Header/Header";
 import Timer from "../Timer/Timer";
 import Image from "next/image";
-import acute from '@/img/acute.svg'
+import acute from '@/img/acute.svg';
+import products from "@/app/data/products/products";
 
-  const products: Product[] = [
-    {
-      id: "1",
-      name: "Unlimited 1-month Plan",
-      regularity: "month",
-      oldPrice: 69.99,
-      newPrice: 39.99,
-      currency: "USD",
-      trial_period: 7,
-      trial_amount: 100,
-      isMostPopular: true,
-      period: 'Per month',
-      isUnique: false,
-    },
-    {
-      id: "2",
-      name: "7-day Access",
-      regularity: "month",
-      oldPrice: 10.00,
-      newPrice: 1.00,
-      currency: "USD",
-      trial_period: 0,
-      trial_amount: 100,
-      isMostPopular: false,
-      period: 'Then 29.99 per month',
-      isUnique: true,
-    },
-    {
-      id: "3",
-      name: "Unlimited Annual Plan",
-      regularity: "year",
-      newPrice: 24.99,
-      oldPrice: 49.00,
-      currency: "USD",
-      trial_period: 14,
-      trial_amount: 100,
-      isMostPopular: false,
-      period: 'Per month',
-      isUnique: false
-    },
-  ];
-  
-  
-
+/**
+ * Компонент ProductList отображает список продуктов и обрабатывает выбор одного из них.
+ * Также реализует A/B-тестирование: 50% пользователей видят таймер со скидкой.
+ */
 const ProductList: React.FC = () => {
+  /** ID выбранного продукта */
   const [selectedId, setSelectedId] = useState<string | null>(null);
+  /** Флаг отображения таймера */
   const [showTime, setShowTime] = useState<boolean>(true);
+  /** Вариант A/B-теста */
+  const [variant, setVariant] = useState<"A" | "B" | null>(null);
 
+  /**
+   * Определяет A/B-вариант пользователя и сохраняет его в localStorage.
+   */
+  useEffect(() => {
+    let userVariant = localStorage.getItem("abTestVariant") as "A" | "B" | null;
+
+    if (!userVariant) {
+      userVariant = Math.random() < 0.5 ? "A" : "B";
+      localStorage.setItem("abTestVariant", userVariant);
+    }
+
+    setVariant(userVariant);
+  }, []);
+
+  /**
+   * Обрабатывает выбор продукта.
+   * @param {string} id - ID выбранного продукта.
+   */
   const handleSelect = (id: string) => {
     setSelectedId(id);
   };
 
+  /**
+   * Обрабатывает клик по кнопке "Get Started".
+   * Если продукт выбран, выводит его ID и имя в консоль.
+   */
   const handleButtonClick = () => {
     const selectedProduct = products.find((p) => p.id === selectedId);
     if (selectedProduct) {
       console.log(`ID: ${selectedProduct.id}, Name: ${selectedProduct.name}`);
     } else {
-      console.log('Please, choose the product!');
+      console.log("Please, choose the product!");
     }
-  }
-
-
+  };
 
   return (
     <>
-    
-    <Header />
+      <Header />
 
-    {showTime && (
-    <div className={styles.saleBannerMobile}>
-        <span className={styles.timerText}>
-          <Image src={acute} alt="Timer Icon" className={styles.saleIcon} width={22} height={16} />
-          SALE ENDS IN <Timer duration={60} 
-          onExpire={() => setShowTime(false) }/>
-        </span>
-      </div>
-    )}
+      {/* A/B тест: таймер отображается только в варианте "B" */}
+      {variant === "B" && showTime && (
+        <div className={styles.saleBannerMobile}>
+          <span className={styles.timerText}>
+            <Image
+              src={acute}
+              alt="Timer Icon"
+              className={styles.saleIcon}
+              width={22}
+              height={16}
+            />
+            SALE ENDS IN{" "}
+            <Timer duration={60} onExpire={() => setShowTime(false)} />
+          </span>
+        </div>
+      )}
 
-    <div className={styles.productList}>
-    
-      {products.map((product) => (
-        <ProductCard
-          key={product.id}
-          product={product}
-          selected={selectedId === product.id}
-          onSelect={handleSelect} 
+      {/* Список продуктов */}
+      <div className={styles.productList}>
+        {products.map((product) => (
+          <ProductCard
+            key={product.id}
+            product={product}
+            selected={selectedId === product.id}
+            onSelect={handleSelect}
           />
-      ))}
-    </div>
-    
+        ))}
+      </div>
+
+      {/* Кнопка "Get Started" */}
       <div className={styles.buttonContainer}>
         <Button onClick={handleButtonClick}>Get Started</Button>
       </div>
 
+      {/* Дополнительный текст о подписке */}
       <div className={styles.bottomText}>
-          <p>Automatic renewal of $29.99 per month.</p>
-          <p>You may cancel by support@justdone.ai. Our goal is customer satisfaction</p>
+        <p>Automatic renewal of $29.99 per month.</p>
+        <p>
+          You may cancel by support@justdone.ai. Our goal is customer
+          satisfaction.
+        </p>
       </div>
-
     </>
   );
 };

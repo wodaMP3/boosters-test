@@ -9,14 +9,14 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #E3FFFE;
+    --background: linear-gradient(253deg, rgba(227, 255, 254, 0.697) 23.91%, rgba(230, 237, 253, 0.645) 78.01%);
     --foreground: #ededed;
   }
 }
 
 body {
+  position: relative;
   color: var(--foreground);
   background: var(--background);
   font-family: Inter;
 }
-

@@ -1,453 +1,418 @@
-
-
 .productCard {
-    position: relative;
-    display: flex;
-    width: 363px;
-    height: 144px;
-    background-color: #FFFFFF;
-    border: 4px solid #D7F4F3;
-    border-radius: 16px;
-    padding: 16px;
-    text-align: center;
-    align-items: end;
-    cursor: pointer;
-    transition: all 0.3s ease;
-  }
-
-  .saleBanner {
-    position: absolute;
-    top: 0;
-    margin-left: -16px;
-    height: 56px;
-    width: 100%;
-    background-color: #222;
-    color: #FFCC8F;
-    font-weight: 600;
-    font-size: 16px;
-    line-height: 24px;
-    letter-spacing: 0.15px;
-    padding: 10px;
-    text-align: center;
-    border-top-left-radius: 12px;
-    border-top-right-radius: 12px;
-  }
-
-  .bannerArrow {
-    position: absolute;
-    bottom: -6px;
-    left: 90%;
-    transform: translateX(-50%);
-    width: 0;
-    height: 0;
-    border-left: 8px solid transparent;
-    border-right: 8px solid transparent;
-    border-top: 8px solid #222;
-  }
-
-  .timerText {
-    position: relative;
-    top: 25%;
-    margin-left: 20px;
-  }
-
-  .saleIcon {
-    position: absolute;
-    left: -30px;
-    top: 1px;
-    color: #FFCC8F;
-  }
-
-  .cardContent {
-    display: flex;
-    position: relative;
-    width: 100%;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    top: 26px;
-    height: 100%;          
-  }
-
-  .popularBadge {
-    position: absolute;
-    top: -15px;
-    left: 50px;
-    background-color: #00B39B;
-    color: white;
-    font-size: 12px;
-    font-weight: 700;
-    padding: 4px 12px;
-    border-radius: 16px;
-    white-space: nowrap;
-    z-index: 11;
-  }
+  position: relative;
+  display: flex;
+  align-items: end;
+  padding: 16px;
+  text-align: center;
   
-  .discount90 {
-    position: absolute;
-    top: -12px;
-    left: 50px;
-    background: #14b8a6;
-    color: white;
-    font-size: 12px;
-    padding: 4px 12px;
-    border-radius: 16px;
-    font-weight: 700;
-    white-space: nowrap;
-    z-index: 111;
-  }
+  width: 363px;
+  height: 144px;
+
+  background-color: #FFFFFF;
+
+  border: 4px solid #D7F4F3;
+  border-radius: 16px;
   
-  .discount50 {
-    position: absolute;
-    top: -12px;
-    left: 50px;
-    background: #14b8a6;
-    color: white;
-    font-size: 12px;
-    padding: 4px 12px;
-    border-radius: 16px;
-    font-weight: 700;
-    white-space: nowrap;
-    z-index: 111;
-  }
-  
-  .bestValueBadge {
-    position: absolute;
-    top: -30px;
-    right: 12px;
-    background: #fbbf24;
-    color: black;
-    font-size: 16px;
-    padding: 4px 16px;
-    line-height: 30px;
-    border-radius: 14px;
-    font-weight: 600;
-    display: flex;
-    align-items: center;
-    transform: rotate(4.2deg);
-    gap: 4px;
-    z-index: 111;
-  }
-  
-  .period {
-    width: 219px;
-    display: flex;
-    color: #22293B;
-    font-weight: 700;
-    line-height: 24px;
-    font-size: 17px;
-    letter-spacing: 0.1px;
-  }
-  .productCard:hover {
-    border-color: #00B39B;
-  }
-  
-  .productCard.selected {
-    border-color: #00B39B;
-  }
-  
-  .price {
-    width: 72px;
-    height: 68px;
-    display: flex;
-    align-items: center;
-    position: relative;
-    color: #3B71F7;
-    margin-left: 18px;
-    font-weight: 700;
-    font-size: 20px;
-    line-height: 24px;
-  }
-  
-  .oldPrice {
-    bottom: 45px;
-    font-weight: 400;
-    margin-left: 25.5px;
-    line-height: 20px;
-    position: absolute;
-    width: 44px;
-    font-size: 12px;
-    text-decoration: line-through red;
-    color: #181B29;
-    margin-right: 8px;
-    letter-spacing: 0.5px;
-  }
-  
-  .newPrice {
-    position: absolute;
-    font-weight: bold;
-    color: #0070f3;
-  }
-  
-  .checkboxContainer {
-    display: flex;
-    align-items: center;
-    margin-right: 10px; /* Чтобы чекбокс не прижимался вплотную */
-  }
-  
-  .checkbox {
-    width: 24px;
-    height: 24px;
-    border: 2px solid gray;
-    border-radius: 100%;
-    background-color: white;
-    cursor: pointer;
-  }
-  
-  .checked {
-    background-color: #00B39B;
-    border-color: #ffffff;
-  }
-
-  .checkIcon {
-    width: 20px;
-    height: 20px;
-    color: white;
-  }
-
-  .monthly {
-    position: absolute;
-    display: flex;
-    font-weight: 400;
-    width: 129px;
-    font-size: 12px;
-    align-self: flex-end;
-    max-height: 20px;
-    margin-left: -56px;
-    color: #181B29;
-    line-height: 20px;
-    letter-spacing: 0.1px;
-    flex-wrap: nowrap;
-    flex-direction: row-reverse;
-  }
-
-  .productCard .customPrice .newPrice {
-    margin-left: 20px;
-  }
-
-  .expiredStyle {
-    height: 90px;
-  }
-
-  .expiredStyle .cardContent {
-    top: 0;
-  }
-
-  @media (max-width: 1200px) {
-    .productCard {
-        width: 300px; /* Уменьшаем ширину карточки */
-        height: 120px; /* Уменьшаем высоту карточки */
-        padding: 12px; /* Уменьшаем отступы */
-    }
-
-    .saleBanner {
-        height: 48px; /* Уменьшаем высоту баннера */
-        font-size: 14px; /* Уменьшаем размер шрифта */
-        padding: 8px; /* Уменьшаем отступы */
-        margin-left: -12px;
-    }
-
-    .period {
-        font-size: 15px; /* Уменьшаем размер шрифта */
-    }
-
-    .price {
-        font-size: 18px; /* Уменьшаем размер шрифта */
-    }
-
-    .oldPrice {
-        font-size: 11px; /* Уменьшаем размер шрифта */
-        margin-left: 21.5px;
-    }
-
-    .monthly {
-        font-size: 11px;
-        margin-left: -70px;
-        margin-bottom: 2px; /* Уменьшаем размер шрифта */
-    }
+  cursor: pointer;
+  transition: all 0.3s ease;
 }
+.saleBanner {
+  position: absolute;
+  top: 0;
+  margin-left: -16px;
+  height: 56px;
+  width: 100%;
+  padding: 10px;
 
+  background-color: #222;
 
+  color: #FFCC8F;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 24px;
+  letter-spacing: 0.15px;
+  text-align: center;
 
-
-@media (max-width: 1030px) {
-
-
-.productCard {
-    width: 90%; /* Уменьшаем ширину карточки */
-    height: 96px; /* Уменьшаем высоту карточки */
-    padding: 10px; /* Уменьшаем отступы */
+  border-top-left-radius: 12px;
+  border-top-right-radius: 12px;
 }
-
-.expiredStyle .period {
-  width: 244px;
-  margin-right: 433px;
+.bannerArrow {
+  position: absolute;
+  bottom: -6px;
+  left: 90%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 0;
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
+  border-top: 8px solid #222;
+}
+.timerText {
+  position: relative;
+  top: 25%;
+  margin-left: 20px;
+}
+.saleIcon {
+  position: absolute;
+  left: -30px;
+  top: 1px;
+  color: #FFCC8F;
+}
+.cardContent {
+  display: flex;
+  position: relative;
+  width: 100%;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  top: 26px;
+  height: 100%;
+}
+.popularBadge {
+  position: absolute;
+  top: -15px;
+  left: 50px;
+  background-color: #00B39B;
+  color: white;
+  font-size: 12px;
+  font-weight: 700;
+  padding: 4px 12px;
+  border-radius: 16px;
+  white-space: nowrap;
+  z-index: 11;
+}
+.discount90 {
+  position: absolute;
+  top: -12px;
+  left: 50px;
+  background: #14b8a6;
+  color: white;
+  font-size: 12px;
+  padding: 4px 12px;
+  border-radius: 16px;
+  font-weight: 700;
+  white-space: nowrap;
+  z-index: 111;
+}
+.discount50 {
+  position: absolute;
+  top: -12px;
+  left: 50px;
+  background: #14b8a6;
+  color: white;
+  font-size: 12px;
+  padding: 4px 12px;
+  border-radius: 16px;
+  font-weight: 700;
+  white-space: nowrap;
+  z-index: 111;
+}
+.bestValueBadge {
+  position: absolute;
+  top: -30px;
+  right: 12px;
+  background: #fbbf24;
+  color: black;
+  font-size: 16px;
+  padding: 4px 16px;
+  line-height: 30px;
+  border-radius: 14px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  transform: rotate(4.2deg);
+  gap: 4px;
+  z-index: 111;
 }
 .period {
-  width: 244px;
-  margin-right: 433px;
+  width: 219px;
+  display: flex;
+  color: #22293B;
+  font-weight: 700;
+  line-height: 24px;
+  font-size: 17px;
+  letter-spacing: 0.1px;
 }
-
-.cardContent {
+.productCard:hover {
+  border-color: #00B39B;
+}
+.productCard.selected {
+  border-color: #00B39B;
+}
+.price {
+  width: 72px;
+  height: 68px;
+  display: flex;
+  align-items: center;
+  position: relative;
+  color: #3B71F7;
+  margin-left: 18px;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 24px;
+}
+.oldPrice {
+  bottom: 45px;
+  font-weight: 400;
+  margin-left: 25.5px;
+  line-height: 20px;
+  position: absolute;
+  width: 44px;
+  font-size: 12px;
+  text-decoration: line-through red;
+  color: #181B29;
+  margin-right: 8px;
+  letter-spacing: 0.5px;
+}
+.newPrice {
+  position: absolute;
+  font-weight: bold;
+  color: #0070f3;
+}
+.checkboxContainer {
+  display: flex;
+  align-items: center;
+  margin-right: 10px;
+ /* Чтобы чекбокс не прижимался вплотную */
+}
+.checkbox {
+  width: 24px;
+  height: 24px;
+  border: 2px solid gray;
+  border-radius: 100%;
+  background-color: white;
+  cursor: pointer;
+}
+.checked {
+  background-color: #00B39B;
+  border-color: #ffffff;
+}
+.checkIcon {
+  width: 20px;
+  height: 20px;
+  color: white;
+}
+.monthly {
+  position: absolute;
+  display: flex;
+  font-weight: 400;
+  width: 129px;
+  font-size: 12px;
+  align-self: flex-end;
+  max-height: 20px;
+  margin-left: -56px;
+  color: #181B29;
+  line-height: 20px;
+  letter-spacing: 0.1px;
+  flex-wrap: nowrap;
+  flex-direction: row-reverse;
+}
+.productCard .customPrice .newPrice {
+  margin-left: 20px;
+}
+.expiredStyle {
+  height: 90px;
+}
+.expiredStyle .cardContent {
   top: 0;
 }
-
-.saleBanner {
-    display: none;
-    height: 44px; /* Уменьшаем высоту баннера */
-    font-size: 10px; /* Уменьшаем размер шрифта */
-    padding: 6px; /* Уменьшаем отступы */
-    margin-left: -10px;
+@media (max-width: 1200px) {
+  .productCard {
+      width: 300px;
+     /* Уменьшаем ширину карточки */
+      height: 120px;
+     /* Уменьшаем высоту карточки */
+      padding: 12px;
+     /* Уменьшаем отступы */
+ }
+  .saleBanner {
+      height: 48px;
+     /* Уменьшаем высоту баннера */
+      font-size: 14px;
+     /* Уменьшаем размер шрифта */
+      padding: 8px;
+     /* Уменьшаем отступы */
+      margin-left: -12px;
+ }
+  .period {
+      font-size: 15px;
+     /* Уменьшаем размер шрифта */
+ }
+  .price {
+      font-size: 18px;
+     /* Уменьшаем размер шрифта */
+ }
+  .oldPrice {
+      font-size: 11px;
+     /* Уменьшаем размер шрифта */
+      margin-left: 21.5px;
+ }
+  .monthly {
+      font-size: 11px;
+      margin-left: -70px;
+      margin-bottom: 2px;
+ }
 }
-
-.bestValueBadge {
-  right: 180px;
+@media (max-width: 1030px) {
+  .productCard {
+      width: 90%;
+     /* Уменьшаем ширину карточки */
+      height: 96px;
+     /* Уменьшаем высоту карточки */
+      padding: 10px;
+     /* Уменьшаем отступы */
+ }
+  .period {
+      width: 244px;
+      margin-right: 433px;
+ }
+  .cardContent {
+      top: 0;
+ }
+  .saleBanner {
+      display: none;
+      height: 44px;
+     /* Уменьшаем высоту баннера */
+      font-size: 10px;
+     /* Уменьшаем размер шрифта */
+      padding: 6px;
+     /* Уменьшаем отступы */
+      margin-left: -10px;
+ }
+  .bestValueBadge {
+      right: 180px;
+ }
+  .price {
+      font-size: 23px;
+     /* Уменьшаем размер шрифта */
+      margin-left: -165px;
+ }
+  .newPrice {
+      margin-left: 15px;
+ }
+  .oldPrice {
+      font-size: 12px;
+     /* Уменьшаем размер шрифта */
+      bottom: 44px;
+      margin-left: 51.5px;
+ }
+  .monthly {
+      font-size: 12px;
+      margin-left: -32px;
+      margin-bottom: 7px;
+ }
 }
-
-.price {
-    font-size: 23px; /* Уменьшаем размер шрифта */
-    margin-left: -165px;
-}
-
-.newPrice {
-  margin-left: 15px;
-}
-
-.oldPrice {
-    font-size: 12px; /* Уменьшаем размер шрифта */
-    bottom: 44px;
-    margin-left: 51.5px;
-}
-
-.monthly {
-  font-size: 12px;
-  margin-left: -32px;
-  margin-bottom: 7px;
-}
-}
-
-
 
 @media (max-width: 768px) {
-
   .productCard {
-    width: 90%; /* Карточка занимает всю ширину */
-    height: auto; /* Высота автоматически подстраивается под контент */
-    padding: 10px; /* Уменьшаем отступы */
-  }
-
+      width: 90%;
+     /* Карточка занимает всю ширину */
+      height: auto;
+     /* Высота автоматически подстраивается под контент */
+      padding: 10px;
+     /* Уменьшаем отступы */
+ }
   .saleBanner {
-    height: 40px; /* Уменьшаем высоту баннера */
-    font-size: 14px; /* Уменьшаем размер шрифта */
-    padding: 6px; /* Уменьшаем отступы */
-  }
-
+      height: 40px;
+     /* Уменьшаем высоту баннера */
+      font-size: 14px;
+     /* Уменьшаем размер шрифта */
+      padding: 6px;
+     /* Уменьшаем отступы */
+ }
   .period {
-    font-size: 14px;
-    margin-right: 470px; /* Уменьшаем размер шрифта */
-  }
-
+      font-size: 14px;
+      margin-right: 470px;
+     /* Уменьшаем размер шрифта */
+ }
   .price {
-    font-size: 16px; /* Уменьшаем размер шрифта */
-    margin-left: -200px;
-  }
-
+      font-size: 16px;
+     /* Уменьшаем размер шрифта */
+      margin-left: -200px;
+ }
   .oldPrice {
-    font-size: 12px; /* Уменьшаем размер шрифта */
-  }
-
+      font-size: 12px;
+     /* Уменьшаем размер шрифта */
+ }
   .monthly {
-    font-size: 12px; /* Уменьшаем размер шрифта */
-  }
-
+      font-size: 12px;
+     /* Уменьшаем размер шрифта */
+ }
   .popularBadge {
-    font-size: 12px; /* Уменьшаем размер шрифта */
-    padding: 4px 8px; /* Уменьшаем отступы */
-  }
-
+      font-size: 12px;
+     /* Уменьшаем размер шрифта */
+      padding: 4px 8px;
+     /* Уменьшаем отступы */
+ }
   .checkbox {
-    width: 20px; /* Уменьшаем размер чекбокса */
-    height: 20px; /* Уменьшаем размер чекбокса */
-  }
-
-  .checkIcon {
-    width: 16px; /* Уменьшаем размер иконки */
-    height: 16px; /* Уменьшаем размер иконки */
-  }
+      width: 20px;
+     /* Уменьшаем размер чекбокса */
+      height: 20px;
+     /* Уменьшаем размер чекбокса */
+ }
 }
 
 @media (max-width: 480px) {
   .productCard {
-    padding: 8px;
-    max-height: 88px;
-  }
-  
+      padding: 8px;
+      max-height: 88px;
+ }
   .saleBanner {
-    display: none;
-    height: 35px; /* Еще меньше высота баннера */
-    font-size: 12px; /* Еще меньше размер шрифта */
-    padding: 4px; /* Еще меньше отступов */
-    margin-left: -8px;
-  }
-  
+      display: none;
+     /* на мобайле основные баннеры скрываются*/
+      height: 35px;
+     /* Еще меньше высота баннера */
+      font-size: 12px;
+     /* Еще меньше размер шрифта */
+      padding: 4px;
+     /* Еще меньше отступов */
+      margin-left: -8px;
+ }
   .cardContent {
       top: 10px;
-    }
-
+ }
   .checkbox {
-    width: 24px;
-    height: 24px;
-  }  
-
-  .expiredStyle .period {
-    margin-right: 155px;
-  }
-  
+      width: 24px;
+      height: 24px;
+ }
   .period {
-    margin-right: 155px; 
-  }
-
+      margin-right: 155px;
+ }
   .price {
-    font-size: 20px; /* Еще меньше размер шрифта */
-  }
-
+      font-size: 20px;
+     /* Еще меньше размер шрифта */
+ }
   .newPrice {
-    margin-left: 25px;
-  }
-
+      margin-left: 25px;
+ }
   .oldPrice {
-    font-size: 12px; /* Еще меньше размер шрифта */
-  }
-
+      font-size: 12px;
+     /* Еще меньше размер шрифта */
+ }
   .monthly {
-    font-size: 12px;
-    margin-bottom: 5px; /* Еще меньше размер шрифта */
-  }
-
+      font-size: 12px;
+      margin-bottom: 5px;
+     /* Еще меньше размер шрифта */
+ }
   .popularBadge {
-    font-size: 10px; /* Еще меньше размер шрифта */
-    padding: 3px 6px; /* Еще меньше отступы */
-  }
-
+      font-size: 10px;
+     /* Еще меньше размер шрифта */
+      padding: 3px 6px;
+     /* Еще меньше отступы */
+ }
   .bestValueBadge {
-    right: 18px;
-  }
-
+      right: 18px;
+ }
   .checkbox {
-    width: 18px; /* Еще меньше размер чекбокса */
-    height: 18px; /* Еще меньше размер чекбокса */
-  }
-
-  .checkIcon {
-    width: 14px; /* Еще меньше размер иконки */
-    height: 14px; /* Еще меньше размер иконки */
-  }
+      width: 18px;
+     /* Еще меньше размер чекбокса */
+      height: 18px;
+     /* Еще меньше размер чекбокса */
+ }
 }
-
-@media (max-width: 390px) {
-
+@media (max-width: 395px) {
   .period {
-    width: 190px;
-    margin-right: 180px;
-  }
+      width: 190px;
+      margin-right: 150px;
+ }
 }
