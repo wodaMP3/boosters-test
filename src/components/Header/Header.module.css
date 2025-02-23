@@ -1,6 +1,7 @@
 .header {
   text-align: center;
   padding: 20px;
+  margin-top: 128px;
 }
 
 .title {
@@ -60,7 +61,14 @@
   display: none;
 }
 
+@media (max-width: 1030px) {
+  .header {
+    margin-top: 0;
+  }
+}
+
 @media (max-width: 830px) {
+
   .scrollContent {
     gap: 15px;
   }
