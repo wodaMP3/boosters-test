@@ -404,9 +404,9 @@
       right: 18px;
  }
   .checkbox {
-      width: 18px;
+      width: 24px;
      /* Еще меньше размер чекбокса */
-      height: 18px;
+      height: 24px;
      /* Еще меньше размер чекбокса */
  }
 }
