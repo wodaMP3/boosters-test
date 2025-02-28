@@ -1,8 +1,13 @@
 Test app requirement functionality: 
+
 Banner "sale end in: " should disappear if time is expired.
+
 By clicking the button u should see id and name of product in console.
+
 Design must be fully adaptive.
+
 Implement A/B test - if user hadn't visited the project before (localstorage is clear) - he has a 50% chance to get one of the versions of the app (A/B).
+
 If A - banner doesnt appear at all.
 
 ## Getting Started
