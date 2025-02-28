@@ -1,6 +1,6 @@
 Test app requirement functionality: 
 
-Banner "sale end in: " should disappear if time is expired.
+Banner "sale ends in: " should disappear if time is expired.
 
 By clicking the button u should see id and name of product in console.
 
