@@ -1,4 +1,9 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+Test app requirement functionality: 
+Banner "sale end in: " should disappear if time is expired.
+By clicking the button u should see id and name of product in console.
+Design must be fully adaptive.
+Implement A/B test - if user hadn't visited the project before (localstorage is clear) - he has a 50% chance to get one of the versions of the app (A/B).
+If A - banner doesnt appear at all.
 
 ## Getting Started
 
@@ -6,15 +11,7 @@ First install packeges:
 npm install
 
 Then run server:
-```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
